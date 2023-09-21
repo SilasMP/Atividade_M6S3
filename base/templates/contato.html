@@ -1,0 +1,20 @@
+{% extends 'index.html'%}
+{% load bootstrap5 %}
+{% block title %}Atividade M6S2 - Pagina Contato{% endblock %}
+{% block banner %}
+  <h1 class="display-4 fst-italic">Contato</h1>
+  <p class="lead my-2">Preencha os campos abaixo.</p>
+{% endblock %}
+{% block conteudo %}
+  {% if sucesso %}
+    <p class="alert alert-success">Mensagem Encaminhada com Sucesso!</p>
+  {% else %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}    
+      {% buttons %}
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      {% endbuttons %}    
+    </form>
+  {% endif %}
+{% endblock %}
