@@ -1,5 +1,5 @@
 from django import forms
-from base.models import Contato, Reserva
+from base.models import Contato
 
 class ContatoForm(forms.ModelForm):
     class Meta:
@@ -20,34 +20,6 @@ class ContatoForm(forms.ModelForm):
             'mensagem': forms.Textarea(
                 attrs={
                     'placeholder':'Escreva sua mensagem'
-                }
-            ),
-        }
-
-class ReservaForm(forms.ModelForm):
-    class Meta:
-        model = Reserva
-        fields = ['nome_pet', 'telefone', 'dia_reserva', 'observacoes']
-
-        widgets = {
-            'nome_pet': forms.TextInput(
-                attrs={
-                    'placeholder':'Informe o nome do seu Pet'
-                }
-            ),
-            'telefone': forms.TextInput(
-                attrs={
-                    'placeholder':'Informe um Telefone de contato'
-                }
-            ),
-            'dia_reserva': forms.DateInput(
-                attrs={
-                    'type': 'date'
-                }
-            ),
-            'observacoes': forms.Textarea(
-                attrs={
-                    'placeholder':'Escreva aqui observações relevantes para a reserva'
                 }
             ),
         }
